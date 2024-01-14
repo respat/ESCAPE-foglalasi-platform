@@ -38,6 +38,15 @@ export class ReservationformComponent {
   }
 
   onSubmit() {
+    if (
+      !this.foglalas.nev ||
+      !this.foglalas.datum ||
+      !this.foglalas.iranyitoszam ||
+      !this.foglalas.cim
+    ) {
+      alert('Minden kötelező mezőt ki kell tölteni!');
+      return;
+    }
     this.foglalas.fo = this.sliderValue;
     this.foglalasService.createFoglalas(this.foglalas).subscribe(
       (response: any) => {

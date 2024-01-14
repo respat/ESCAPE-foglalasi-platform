@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class FoglalasService {
-  private apiUrl = 'http://192.168.0.7:3000/foglalasok';
+  private apiUrl = 'http://localhost:3000/foglalasok';
 
   constructor(private http: HttpClient) {}
 
