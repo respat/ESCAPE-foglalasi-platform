@@ -1,0 +1,85 @@
+<section class="flex w-full flex-col items-center py-20 min-h-screen">
+  <div class="w-full flex flex-col justify-center items-center">
+    <h1 class="mb-6 font-medium text-xl">Új foglalás</h1>
+    <form
+      (submit)="onSubmit()"
+      class="w-full md:w-1/2 lg:w-1/4 md:border rounded-lg md:py-10 flex flex-col items-center"
+    >
+      <div class="w-3/4 mb-4">
+        <label for="date">Dátum</label>
+        <input
+          id="date"
+          name="datum"
+          type="date"
+          [value]="getDate()"
+          [(ngModel)]="foglalas.datum"
+          required
+          class="w-full rounded-md border h-12 mt-1 px-2 bg-white border-gray-200 shadow-sm sm:text-sm"
+        />
+      </div>
+      <div class="w-3/4 mb-4">
+        <label for="name">Név</label>
+        <input
+          name="nev"
+          id="name"
+          type="text"
+          [(ngModel)]="foglalas.nev"
+          required
+          class="w-full rounded-md border h-12 mt-1 px-2 border-gray-200 shadow-sm sm:text-sm"
+        />
+      </div>
+      <div class="w-3/4 mb-4">
+        <label for="zip-code">Irányítószám</label>
+        <input
+          name="iranyitoszam"
+          id="zip-code"
+          type="number"
+          (change)="zipCode($event)"
+          [(ngModel)]="foglalas.iranyitoszam"
+          required
+          class="w-full rounded-md border h-12 mt-1 px-2 border-gray-200 shadow-sm sm:text-sm"
+        />
+      </div>
+      <div class="w-3/4 mb-4">
+        <label for="location">Helyszín</label>
+        <input
+          name="cim"
+          id="location"
+          type="text"
+          required
+          [(ngModel)]="foglalas.cim"
+          class="w-full rounded-md border h-12 mt-1 px-2 border-gray-200 shadow-sm sm:text-sm"
+        />
+      </div>
+      <div class="w-3/4 mb-4">
+        <label for="person">Személyek</label>
+        <div class="w-full flex justify-center items-center">
+          <input
+            name="person"
+            id="person"
+            type="range"
+            min="2"
+            value="2"
+            max="16"
+            required
+            [(ngModel)]="sliderValue"
+            step="1"
+            class="w-full mr-2 mt-1 h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          />
+          <div
+            class="flex bg-indigo-600 rounded py-1 px-2 justify-center items-center"
+          >
+            <img src="assets/user.svg" class="w-4 mr-1" alt="" />
+            <p class="text-sm text-white">{{ sliderValue }}</p>
+          </div>
+        </div>
+        <button
+          class="bg-indigo-600 mt-8 py-4 rounded-md shadow-sm shadow-indigo-200 text-white w-full"
+          type="submit"
+        >
+          Foglalás hozzáadása
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
